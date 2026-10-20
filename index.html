@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PROFiNE — Interactive developer portfolio and GitHub analytics for Rishabh Saxena, B.Tech CSE student at NIET Greater Noida." />
+  <meta name="author" content="Rishabh Saxena" />
+  <meta name="keywords" content="Rishabh Saxena, developer portfolio, GitHub analytics, CSE, NIET, C++, Python, software development" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PROFiNE — Rishabh Saxena" />
+  <meta property="og:description" content="Interactive developer portfolio and GitHub analytics for Rishabh Saxena." />
+  <meta property="og:url" content="https://rishabhsxen58-lgtm.github.io/profine/" />
+
+  <title>PROFiNE — Rishabh Saxena</title>
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Inline theme script to prevent flash of wrong theme -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("profine-theme");
+        var sys = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", stored || sys);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+  <header id="main-nav" class="nav" role="banner">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__brand" aria-label="PROFiNE — Back to top">
+          PRO<span class="brand-accent">F</span>iNE
+        </a>
+
+        <!-- Desktop links -->
+        <nav aria-label="Primary navigation">
+          <div class="nav__links">
+            <a href="#about"     class="nav__link">About</a>
+            <a href="#skills"    class="nav__link">Skills</a>
+            <a href="#projects"  class="nav__link">Projects</a>
+            <a href="#analytics" class="nav__link">Analytics</a>
+            <a href="#contact"   class="nav__link">Contact</a>
+          </div>
+        </nav>
+
+        <div class="nav__actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to light mode"
+            aria-pressed="true"
+          >☀️</button>
+          <button
+            id="nav-burger"
+            class="nav-burger"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >☰</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+      <a href="#about"     class="mobile-nav__link">About</a>
+      <a href="#skills"    class="mobile-nav__link">Skills</a>
+      <a href="#projects"  class="mobile-nav__link">Projects</a>
+      <a href="#analytics" class="mobile-nav__link">Analytics</a>
+      <a href="#contact"   class="mobile-nav__link">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ═══════════════════════ HERO ══════════════════════════ -->
+    <section id="home" class="hero" aria-labelledby="hero-name">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__text">
+            <p class="hero__label" aria-label="Status">
+              <span aria-hidden="true">●</span> Available for collaboration
+            </p>
+
+            <h1 id="hero-name" class="hero__name">
+              <!-- Filled by JS from config -->
+            </h1>
+
+            <p class="hero__degree">
+              B.Tech CSE · NIET, Greater Noida
+            </p>
+
+            <p id="hero-tagline" class="hero__tagline">
+              <!-- Filled by JS -->
+            </p>
+
+            <div id="hero-interests" class="hero__interests" aria-label="Focus areas">
+              <!-- Filled by JS -->
+            </div>
+
+            <div class="hero__cta">
+              <a href="#projects" class="btn btn--primary">
+                <span aria-hidden="true">↓</span> Explore Projects
+              </a>
+              <a
+                id="hero-linkedin-link"
+                href="#"
+                class="btn btn--outline"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Connect with Rishabh on LinkedIn"
+              >
+                <span aria-hidden="true">🔗</span> LinkedIn
+              </a>
+              <a
+                id="hero-github-link"
+                href="#"
+                class="btn btn--ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Rishabh's GitHub profile"
+              >
+                <span aria-hidden="true">⌥</span> GitHub
+              </a>
+            </div>
+          </div>
+
+          <!-- Profile visual — CSS placeholder, no fake headshot -->
+          <div class="hero__visual" aria-hidden="true">
+            <div class="avatar" role="img" aria-label="Profile avatar placeholder">
+              <div class="avatar__placeholder">
+                <div class="avatar__initials">RS</div>
+                <div style="font-size:0.6rem;color:var(--color-text-muted)">Rishabh Saxena</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ═══════════════════════ ABOUT ══════════════════════════ -->
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section__header" data-reveal>
+          <h2 id="about-title" class="section__title">
+            About <span class="accent">Me</span>
+          </h2>
+          <p class="section__subtitle">Who I am and what I care about</p>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__card" data-reveal>
+            <p class="about__card-label">Profile</p>
+            <h3 id="about-name" class="about__name"><!-- JS --></h3>
+            <p id="about-degree" class="about__degree"><!-- JS --></p>
+            <p id="about-college" class="about__college"><!-- JS --></p>
+            <p id="about-bio" class="about__bio"><!-- JS --></p>
+          </div>
+
+          <div class="about__card" data-reveal>
+            <p class="about__card-label">Focus Areas</p>
+            <h3 class="about__interests-title">What I am working on</h3>
+            <ul id="about-interests" class="about__interests" role="list">
+              <!-- Filled by JS -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ═══════════════════════ SKILLS ═════════════════════════ -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section__header" data-reveal>
+          <h2 id="skills-title" class="section__title">
+            Skills &amp; <span class="accent">Technologies</span>
+          </h2>
+          <p class="section__subtitle">
+            Technologies I work with — clearly labelled by level
+          </p>
+          <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-3)">
+            Levels: <strong style="color:var(--color-badge-proficient-text)">proficient</strong> =
+            used in real projects &nbsp;|&nbsp;
+            <strong style="color:var(--color-badge-familiar-text)">familiar</strong> =
+            comfortable &amp; learning &nbsp;|&nbsp;
+            <strong style="color:var(--color-badge-learning-text)">learning</strong> =
+            actively exploring
+          </p>
+        </div>
+
+        <div id="skills-grid" class="skills-grid" role="list" aria-label="Skills by category">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ═══════════════════════ PROJECTS ════════════════════════ -->
+    <section id="projects" class="section projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section__header" data-reveal>
+          <h2 id="projects-title" class="section__title">
+            My <span class="accent">Projects</span>
+          </h2>
+          <p class="section__subtitle">Things I have built and am building</p>
+        </div>
+
+        <!-- Controls: search + filter -->
+        <div class="projects__controls" data-reveal>
+          <div id="projects-filter" class="filter-bar" role="group" aria-label="Filter by category">
+            <!-- Filled by JS -->
+          </div>
+          <input
+            id="projects-search"
+            type="search"
+            class="projects__search"
+            placeholder="Search projects…"
+            aria-label="Search projects by name, description, or technology"
+          />
+        </div>
+
+        <div id="projects-grid" class="projects-grid" role="list" aria-label="Project cards">
+          <!-- Filled by JS -->
+        </div>
+
+        <p id="projects-empty" class="projects__empty" hidden aria-live="polite">
+          No projects match your search. Try a different keyword or category.
+        </p>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ═══════════════════════ ANALYTICS ═══════════════════════ -->
+    <section id="analytics" class="section" aria-labelledby="analytics-title">
+      <div class="container">
+        <div class="analytics__header-row" data-reveal>
+          <div>
+            <h2 id="analytics-title" class="section__title">
+              GitHub <span class="accent">Analytics</span>
+            </h2>
+            <p class="section__subtitle" style="text-align:left;margin:var(--space-2) 0 0">
+              Live public data fetched from the GitHub REST API.
+            </p>
+          </div>
+          <div style="display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap;">
+            <a
+              id="analytics-profile-link"
+              href="#"
+              class="btn btn--outline btn--sm"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open GitHub profile in new tab"
+            >⌥ View Profile</a>
+            <button
+              id="analytics-refresh"
+              class="btn btn--ghost btn--sm"
+              type="button"
+              aria-label="Refresh GitHub analytics data"
+            >↻ Refresh</button>
+          </div>
+        </div>
+
+        <!-- Loading state -->
+        <div id="analytics-loading" class="analytics__loading" role="status" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Loading GitHub data…</p>
+        </div>
+
+        <!-- Error state -->
+        <div id="analytics-error" class="analytics__error" hidden role="alert" aria-live="assertive">
+          <p>⚠️ Could not load GitHub data</p>
+          <p id="analytics-error-msg" class="analytics__error-msg"></p>
+          <button
+            class="btn btn--outline btn--sm"
+            style="margin-top:var(--space-4)"
+            onclick="document.getElementById('analytics-refresh').click()"
+            type="button"
+          >Try Again</button>
+        </div>
+
+        <!-- Content (hidden until loaded) -->
+        <div id="analytics-content" hidden>
+
+          <!-- Stats row -->
+          <div class="stat-grid" role="list" aria-label="GitHub statistics">
+            <div class="stat-card" role="listitem">
+              <div id="stat-repos" class="stat-card__value" aria-label="Public repositories">—</div>
+              <div class="stat-card__label">Public Repos</div>
+            </div>
+            <div class="stat-card" role="listitem">
+              <div id="stat-followers" class="stat-card__value" aria-label="Followers">—</div>
+              <div class="stat-card__label">Followers</div>
+            </div>
+            <div class="stat-card" role="listitem">
+              <div id="stat-following" class="stat-card__value" aria-label="Following">—</div>
+              <div class="stat-card__label">Following</div>
+            </div>
+            <div class="stat-card" role="listitem">
+              <div id="stat-gists" class="stat-card__value" aria-label="Public gists">—</div>
+              <div class="stat-card__label">Public Gists</div>
+            </div>
+          </div>
+
+          <!-- Charts row -->
+          <div class="analytics__grid">
+            <div class="analytics__panel">
+              <h3 class="analytics__panel-title">Repository Languages</h3>
+              <div id="lang-chart" aria-label="Language distribution across public repositories">
+                <!-- Filled by JS -->
+              </div>
+              <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-4)">
+                Based on primary language per repository.
+              </p>
+            </div>
+
+            <div class="analytics__panel">
+              <h3 class="analytics__panel-title">GitHub Stats Card</h3>
+              <div id="gh-stats-img">
+                <!-- GitHub Readme Stats image inserted by JS — hidden if it fails -->
+              </div>
+              <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-4)">
+                Powered by github-readme-stats.vercel.app — counts public activity only.
+                The image may be unavailable if the service is down.
+              </p>
+            </div>
+          </div>
+
+          <!-- Repo cards -->
+          <h3 class="analytics__panel-title" style="margin-bottom:var(--space-5)">
+            Top Public Repositories
+          </h3>
+          <div
+            id="repo-cards"
+            class="repo-cards"
+            role="list"
+            aria-label="Top public repositories by stars"
+          >
+            <!-- Filled by JS -->
+          </div>
+
+          <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-6);text-align:center">
+            📊 GitHub's public REST API does not expose private contribution history or profile view counts.
+            For repository traffic insights, visit
+            <a
+              href="https://github.com/rishabhsxen58-lgtm?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+            >GitHub → Insights</a>
+            on each repository directly.
+          </p>
+
+          <!-- Visitor counter (optional, inserted by JS) -->
+          <div id="visitor-counter" class="visitor-counter">
+            <!-- Filled by JS if enabled -->
+          </div>
+
+        </div><!-- /#analytics-content -->
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ═══════════════════════ CONTACT ═════════════════════════ -->
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section__header" data-reveal>
+          <h2 id="contact-title" class="section__title">
+            Get in <span class="accent">Touch</span>
+          </h2>
+          <p class="section__subtitle">
+            Open to collaboration, project ideas, and new opportunities.
+          </p>
+        </div>
+
+        <div class="contact__grid" data-reveal>
+          <a
+            id="contact-email"
+            href="mailto:rishabhsxen58@gmail.com"
+            class="contact-card"
+            aria-label="Send email to Rishabh"
+          >
+            <span class="contact-card__icon" aria-hidden="true">✉️</span>
+            <span class="contact-card__label">Email</span>
+            <span class="contact-card__value">rishabhsxen58@gmail.com</span>
+          </a>
+
+          <a
+            id="contact-linkedin"
+            href="#"
+            class="contact-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Connect on LinkedIn"
+          >
+            <span class="contact-card__icon" aria-hidden="true">🔗</span>
+            <span class="contact-card__label">LinkedIn</span>
+            <span class="contact-card__value">rishabh-saxena-02b751369</span>
+          </a>
+
+          <a
+            id="contact-github"
+            href="#"
+            class="contact-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View GitHub profile"
+          >
+            <span class="contact-card__icon" aria-hidden="true">⌥</span>
+            <span class="contact-card__label">GitHub</span>
+            <span class="contact-card__value">rishabhsxen58-lgtm</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════ FOOTER ════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__brand">PRO<span style="color:var(--color-accent)">F</span>iNE</span>
+
+        <div class="footer__links">
+          <a
+            id="footer-github"
+            href="#"
+            class="footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+          >GitHub</a>
+          <a
+            id="footer-linkedin"
+            href="#"
+            class="footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+          >LinkedIn</a>
+          <a
+            href="mailto:rishabhsxen58@gmail.com"
+            class="footer__link"
+            aria-label="Send email"
+          >Email</a>
+        </div>
+      </div>
+
+      <p class="footer__copy">
+        &copy; <span id="footer-year"></span>
+        <span id="footer-name"></span>. Built with semantic HTML, modern CSS &amp;
+        vanilla JavaScript.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button
+    id="back-to-top"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top of page"
+    title="Back to top"
+  >↑</button>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

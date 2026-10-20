@@ -1,0 +1,55 @@
+# Deploy PROFiNE to GitHub Pages
+#
+# Triggers on every push to the main branch.
+# Deploys the static site from the root of the repository.
+#
+# One-time setup required (do this once in the GitHub repository):
+#   Settings → Pages → Source → "GitHub Actions"
+#
+# After deployment the site will be available at:
+#   https://rishabhsxen58-lgtm.github.io/profine/
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+
+# Minimal permissions — only what Pages deployment needs
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one concurrent deployment at a time; cancel in-progress if a new one starts
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy static site
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Upload the entire repository root as the Pages artifact.
+      # The site uses relative asset paths, so it works under any subpath.
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
